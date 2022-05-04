@@ -1,0 +1,57 @@
+<%- include("header") %>
+
+<link rel='stylesheet' href='/style.css' />
+<div>
+    
+   <div class="center">
+    <h2>Your Topic is <%=topic%></h2>
+   </div>
+    
+        <br>
+        <br>
+        <% for(let i=0;i<array.length;i++) { %>
+            <% if( array[i].topic===topic){ %>
+                <div class="question">
+                    <div class="quest">
+                    <%=array[i].description %>
+                    </div>
+                    <!-- <button type="button" class="btn btn-light">solve</button> -->
+                    <div class="button_des">
+                    <a class ="solve_button " href= <%=array[i].url%>  ><button type="button " class="btn btn-light normal">solve</button> </a>
+                  </div>
+<div class="button_des">
+                    <form action="/questionList/<%=topic%>" method="post">
+                <% if(array[i].isDone ===true){%>
+                    <!-- <div class="button_des"> -->
+                  <button type="submit" class="done_button " name="type" value="<%=array[i].id%>">Done</button>
+                <!-- </div> -->
+                <% }else{ %>
+                    <!-- <div class="button_des"> -->
+                        <button type="submit" class="normal" name="type" value="<%=array[i].id%>">Done</button>
+                    <!-- </div> -->
+                    
+                <% }%>
+                        <!-- <input type="submit" id="done" name="type" value="done" /> -->
+                    </form>
+                </div>
+                <div class="button_des">
+                      <form action="/questionList/<%=topic%>" method="post"> 
+                        <%if(array[i].isReview===true){%>
+                            <!-- <div class="button_des"> -->
+                            <button type="submit" class="review_button " name="type" value="#<%=array[i].id%>">Review</button>
+                        <!-- </div> -->
+                        <% }else{%>
+                            <!-- <div class="button_des"> -->
+                            <button type="submit" class="normal" name="type" value="#<%=array[i].id%>">Review</button>
+                        <!-- </div> -->
+                       <% }%>
+                
+            <!-- <input type="submit" id="review" name="type" value="review" /> -->
+        </form> 
+    </div>
+                </div>
+                <%}%>
+                    <%}%>
+
+</div>
+<%- include("footer") %>

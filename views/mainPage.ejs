@@ -1,0 +1,33 @@
+
+<%- include("header") %>
+<link rel='stylesheet' href='/style.css' />
+    <div>
+        <div class="welcome">
+            <h1>Welcome <%=name%>
+            </h1>
+        </div>
+        <div class="quotation">
+            <h4>The bad news is time flies. The good news is you’re the pilot</h4>
+        </div>
+        <% const arr=["Array","String","Graph","Math","Heap","Stack","Queue","Bits","DP","Hashing","Matrix","TwoPointer","Algorithm"] %>
+
+
+
+        <div class="main_page">
+            <% for(let i=0;i<arr.length;i++){ %>
+                <div class="button_layout">
+                    <form action="/mainpage" method="post">
+                        <input type="submit" class="main_page_option" name="topic" value=<%=arr[i]%> />
+                    </form>
+                </div>
+
+                <%}%>
+
+            </div>
+
+
+
+    </div>
+    <%- include("footer") %>
+
+    
